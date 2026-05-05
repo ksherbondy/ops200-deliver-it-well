@@ -37,4 +37,26 @@ describe('server/app.js', function() {
       done();
     });
   });
+
+  it('page says passing', (done) => {
+  chai.request(server)
+    .get('/')
+    .end((err, res) => {
+      expect(err).not.exist;
+      expect(JSON.stringify(res.text)).to.contain('Passing');
+      done();
+    });
+  });
+
+  it('page says passing', (done) => {
+  chai.request(server)
+    .get('/')
+    .end((err, res) => {
+      expect(err).not.exist;
+      expect(JSON.stringify(res.text)).to.contain('Confirming that all new tests are passing.');
+      done();
+    });
+  });
+
+  
 })
